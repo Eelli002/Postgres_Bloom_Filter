@@ -8,8 +8,14 @@ app.use(cors());
 
 // Routes
 app.get('/users', async(req, res) => {
-    try {
-        res.json(req.query);
+    try 
+    {
+        const { name } = req.query;
+        const users = await pool.query(
+            "SELECT * FROM users WHERE first_name || ' ' || last_name ILIKE $1", 
+            [`%${name}%`]
+        );
+        res.json(users.rows);
     } 
     catch (error) {
         console.error(error.message);
