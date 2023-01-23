@@ -41,12 +41,13 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            { users.map(user => (
-                <tr key={user.id}>
-                  <td>{user.first_name}</td>
-                  <td>{user.last_name}</td>
-                </tr>
-            ))
+            { 
+              users.map(user => (
+                  <tr key={user.id}>
+                    <td>{user.first_name}</td>
+                    <td>{user.last_name}</td>
+                  </tr>
+              ))
             }
           </tbody>
         </table>
